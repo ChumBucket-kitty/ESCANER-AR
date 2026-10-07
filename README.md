@@ -10,7 +10,7 @@ npm install
 npm run dev      # open the printed URL; camera needs HTTPS or localhost
 npm run build
 ```
-Without a camera, type the ISBN in the input (sample: `9780140328721`).
+Without a camera, type the ISBN in the input (sample: `9780140328721`; 3D surface test: `9780000000001`, tap "Place on surface (AR)" on a phone with ARCore/ARKit).
 
 ## Structure
 - `src/main.js` – flow: scan → lookup → AR / not-found
