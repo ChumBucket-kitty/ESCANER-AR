@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ESCANER-AR</title>
+  </head>
+  <body>
+    <!-- Screen 1: barcode scanner -->
+    <section id="scanner-screen" class="screen">
+      <video id="scanner-video" playsinline muted></video>
+      <div class="reticle"></div>
+      <p id="scanner-status" class="status">Point the camera at a book barcode</p>
+      <form id="manual-form" class="manual">
+        <input id="manual-isbn" inputmode="numeric" placeholder="Or type ISBN" />
+        <button type="submit">Go</button>
+      </form>
+    </section>
+
+    <!-- Screen 2: AR / demo view -->
+    <section id="ar-screen" class="screen hidden">
+      <video id="ar-video" playsinline muted></video>
+      <div id="ar-overlay"></div>
+      <div class="ar-bar">
+        <span id="ar-title"></span>
+        <button id="back-button" type="button">Scan again</button>
+      </div>
+    </section>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

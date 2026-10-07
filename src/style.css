@@ -1,0 +1,24 @@
+/* Mobile-first, fullscreen layout */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: #000; color: #fff; font-family: system-ui, sans-serif; }
+.screen { position: fixed; inset: 0; overflow: hidden; }
+.hidden { display: none; }
+video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.reticle { position: absolute; top: 50%; left: 50%; width: 80%; max-width: 360px; height: 140px;
+  transform: translate(-50%, -50%); border: 3px solid #4ade80; border-radius: 12px; }
+.status { position: absolute; top: 0; left: 0; right: 0; margin: 0; padding: 16px; text-align: center; background: rgba(0,0,0,.6); }
+.status.error { background: rgba(185,28,28,.85); }
+.manual { position: absolute; bottom: 0; left: 0; right: 0; display: flex; gap: 8px; padding: 16px; background: rgba(0,0,0,.6); }
+.manual input { flex: 1; padding: 12px; font-size: 16px; border-radius: 8px; border: 0; }
+button { padding: 12px 18px; font-size: 16px; border: 0; border-radius: 8px; background: #4ade80; color: #000; }
+.ar-bar { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-between;
+  align-items: center; padding: 16px; background: rgba(0,0,0,.6); }
+#ar-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+/* Placeholder looping animation (replace with real AR content) */
+.ar-placeholder { width: 40vmin; height: 40vmin; border-radius: 50%; background: radial-gradient(circle, #facc15, #f97316);
+  animation: bounce 1.6s ease-in-out infinite; }
+.ar-media { max-width: 80%; max-height: 60%; }
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20%) scale(1.15); }
+}
