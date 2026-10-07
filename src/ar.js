@@ -2,6 +2,26 @@
 // TODO: replace with real image tracking (e.g. MindAR) using book.target
 //       (a compiled .mind file in public/targets/) and anchor book.animation to it.
 let stream = null;
+let modelViewerLoaded = null;
+
+function createModel(book) {
+  modelViewerLoaded ||= import('@google/model-viewer');
+  const mv = document.createElement('model-viewer');
+  mv.setAttribute('src', book.model);
+  mv.setAttribute('ar', '');
+  mv.setAttribute('ar-modes', 'webxr scene-viewer quick-look');
+  mv.setAttribute('ar-placement', 'floor');
+  mv.setAttribute('camera-controls', '');
+  mv.setAttribute('auto-rotate', '');
+  mv.setAttribute('alt', book.title);
+  mv.className = 'ar-model';
+  const btn = document.createElement('button');
+  btn.slot = 'ar-button';
+  btn.className = 'ar-place';
+  btn.textContent = 'Place on surface (AR)';
+  mv.appendChild(btn);
+  return mv;
+}
 
 export async function startAR(book, videoEl, overlayEl) {
   try {
@@ -15,7 +35,7 @@ export async function startAR(book, videoEl, overlayEl) {
   }
 
   overlayEl.replaceChildren();
-  const el = book.animation ? createMedia(book.animation) : null;
+  const el = book.model ? createModel(book) : book.animation ? createMedia(book.animation) : null;
   overlayEl.appendChild(el || placeholder());
 }
 

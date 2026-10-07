@@ -3,5 +3,9 @@
     "title": "Fantastic Mr Fox (sample)",
     "target": "/targets/sample.mind",
     "animation": "/animations/sample.svg"
+  },
+  "9780000000001": {
+    "title": "3D surface test (Astronaut)",
+    "model": "https://modelviewer.dev/shared-assets/models/Astronaut.glb"
   }
 }
